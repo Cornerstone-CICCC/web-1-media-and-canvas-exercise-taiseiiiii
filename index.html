@@ -1,23 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Media Exercise</title>
-</head>
-<body>
-  <div class="container">
-    <!-- AUDIO HTML GOES HERE -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Exercise</title>
+    <style>
+      body {
+        background-image: url("./assets/images/background.jpg");
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- AUDIO HTML GOES HERE -->
+      <audio src="./assets/audio/piano.wav" controls muted loop></audio>
+      <!-- VIDEO HTML GOES HERE -->
+      <video
+        width="400px"
+        height="400px"
+        src="./assets/video/ocean.mp4"
+        controls
+        muted
+        poster="./assets/images/poster.jpg"
+      ></video>
+      <!-- IMAGE MAP HTML GOES HERE-->
+      <img
+        height="400px"
+        width="400px"
+        src="./assets/images/fruit_table.jpg"
+        alt="This is a fruit table"
+        usemap="#fruits-map-table"
+      />
+      <map name="fruits-map-table">
+        <area
+          shape="rect"
+          coords="0,0,200,400"
+          href="https://en.wikipedia.org/wiki/Lavandula"
+          alt="lavender flowers"
+        />
+        <area
+          shape="rect"
+          coords="200,200,400,400"
+          href="https://en.wikipedia.org/wiki/Orange_(fruit)"
+          alt="oranges"
+        />
+        <area
+          shape="rect"
+          coords="200,0,400,200"
+          href="https://en.wikipedia.org/wiki/Coffee"
+          alt="coffee"
+        />
+      </map>
+      <canvas id="myCanvas" width="500" height="500"></canvas>
+    </div>
 
-    <!-- VIDEO HTML GOES HERE -->
+    <script>
+      const canvas = document.getElementById("myCanvas");
+      const ctx = canvas.getContext("2d");
 
-    <!-- IMAGE MAP HTML GOES HERE-->
+      ctx.fillStyle = "#e8f4f8";
+      ctx.fillRect(0, 0, 500, 500);
 
-    <!-- CANVAS HTML GOES HERE -->
-  </div>
+      ctx.lineWidth = 5;
 
-  <script>
-    /* CANVAS JAVASCRIPT GOES HERE */
-  </script>
-</body>
+      ctx.strokeStyle = "red";
+      ctx.beginPath();
+      ctx.moveTo(100, 100);
+      ctx.lineTo(400, 100);
+      ctx.stroke();
+
+      ctx.strokeStyle = "blue";
+      ctx.beginPath();
+      ctx.moveTo(400, 100);
+      ctx.lineTo(400, 400);
+      ctx.stroke();
+
+      ctx.strokeStyle = "green";
+      ctx.beginPath();
+      ctx.moveTo(400, 400);
+      ctx.lineTo(100, 400);
+      ctx.stroke();
+
+      ctx.strokeStyle = "orange";
+      ctx.beginPath();
+      ctx.moveTo(100, 400);
+      ctx.lineTo(100, 100);
+      ctx.stroke();
+    </script>
+  </body>
 </html>
